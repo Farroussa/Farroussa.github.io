@@ -33,18 +33,31 @@
     <main>
         <div class="container">
             <h1>A little QUIZZ about UFC common knowledge</h1>
-            <div class="box">
+            <div class="box" id="play">
+                <h2 class="play">
+                    Welcome to the quizz. The rules are very simple, a question will show up. You only have to answer<br><br>Let's go !
+                </h2>
+            </div>
+            <div class="box" id="endmsg">
+                <h2 class="endmsg">
+                    The quizz is now over thank you !
+                </h2>
+            </div>
+            <div class="box" id="boxquestion">
                 <p id="question"></p>
                 <h4 class="question">Click on the correct answer</h4>
             </div>
-            <div class="box">
+            <div class="box" id="boxchoices">
                 <ul id="choices"></ul>
             </div>
-            <div class="box">
+            <div class="box" id="boxreponse">
                 <ul id="reponse"></ul>
             </div>
-            <div class="box">
+            <div class="box" id="boxscore">
                 <p id="score"></p>
+            </div>
+            <div class="boutons">
+                <button id="playbutton">PLAY</button>
             </div>
             <div class="boutons">
                 <button id="next">NEXT QUESTION</button>

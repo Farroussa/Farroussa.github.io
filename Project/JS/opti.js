@@ -37,15 +37,34 @@ let currentQuestion = 0;
 let score = 0;
 
 const questionElement = document.getElementById('question');
+
 const choicesElement = document.getElementById('choices');
 const reponseElement=document.getElementById('reponse');
 const scoreElement = document.getElementById('score');
 const next =document.getElementById('next');
+const playbutton =document.getElementById('playbutton');
+const play=document.getElementById('play');
+const endmsg=document.getElementById('endmsg');
+const boxquestion=document.getElementById('boxquestion');
+const boxchoices=document.getElementById('boxchoices');
+const boxreponse=document.getElementById('boxreponse');
+const boxscore=document.getElementById('boxscore');
+boxreponse.style.display = 'none';
+endmsg.style.display = 'none';
+boxquestion.style.display='none';
+boxchoices.style.display='none';
+boxreponse.style.display='none';
+boxscore.style.display='none';
 
+playbutton.addEventListener('click',function (){
+    play.style.display='none';
+    boxquestion.style.display='';
+    boxchoices.style.display='';
+
+});
 function loadQuestion() {
     const quizQuestion = quizData[currentQuestion];
     questionElement.textContent = quizQuestion.question;
-
     choicesElement.innerHTML = '';
     quizQuestion.choices.forEach(function(choice, index) {
         const li = document.createElement('li');
@@ -69,29 +88,41 @@ function loadQuestion() {
 
 
 function submitAnswer(choiceIndex) {
+    boxscore.style.display='';
     const quizQuestion = quizData[currentQuestion];
     if (choiceIndex === quizQuestion.correctAnswer) {
         score++;
+        boxreponse.style.display = '';
         reponseElement.textContent ='The correct answer is :  ' + "\n"+ quizQuestion.choices[quizQuestion.correctAnswer];
     }
 
     currentQuestion++;
     if (currentQuestion < quizData.length){
         reponseElement.style.display='';
+        boxreponse.style.display = '';
         reponseElement.textContent ='The correct answer is :  ' + "\n" + quizQuestion.choices[quizQuestion.correctAnswer];
         next.addEventListener('click',function (){
             loadQuestion();
+            boxreponse.style.display = 'none';
             reponseElement.style.display='none';
         });
         showScore();
     }
     else if (currentQuestion === quizData.length){
         reponseElement.style.display='';
+        boxreponse.style.display = '';
         reponseElement.textContent ='The correct answer is :  ' + "\n" + quizQuestion.choices[quizQuestion.correctAnswer]
+        next.addEventListener('click',function (){
+            endmsg.style.display='';
+            boxquestion.style.display='none';
+            boxchoices.style.display='none';
+            boxreponse.style.display='none';
+        });
         showScore();
     }
     else {
         reponseElement.style.display='';
+        boxreponse.style.display = '';
         reponseElement.textContent ='The correct answer is :  ' + "\n" + quizQuestion.choices[quizQuestion.correctAnswer];
         showScore();
     }
@@ -110,7 +141,7 @@ const element5 = document.querySelector("#lien5");
 const element6 = document.querySelector("#lien6");
 const element7 = document.querySelector("#lien7");
 const mediaQuery = window.matchMedia("(max-width: 800px)");
-const liens=document.getElementsByClassName("liens");
+
 function accueil(){
     function handleMediaQuery1(mediaQuery) {
         if (mediaQuery.matches) {
