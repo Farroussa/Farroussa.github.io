@@ -72,13 +72,13 @@ function submitAnswer(choiceIndex) {
     const quizQuestion = quizData[currentQuestion];
     if (choiceIndex === quizQuestion.correctAnswer) {
         score++;
-        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer];
+        reponseElement.textContent ='The correct answer is :  ' + "\n"+ quizQuestion.choices[quizQuestion.correctAnswer];
     }
 
     currentQuestion++;
     if (currentQuestion < quizData.length){
         reponseElement.style.display='';
-        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer];
+        reponseElement.textContent ='The correct answer is :  ' + "\n" + quizQuestion.choices[quizQuestion.correctAnswer];
         next.addEventListener('click',function (){
             loadQuestion();
             reponseElement.style.display='none';
@@ -87,12 +87,12 @@ function submitAnswer(choiceIndex) {
     }
     else if (currentQuestion === quizData.length){
         reponseElement.style.display='';
-        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer]
+        reponseElement.textContent ='The correct answer is :  ' + "\n" + quizQuestion.choices[quizQuestion.correctAnswer]
         showScore();
     }
     else {
         reponseElement.style.display='';
-        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer];
+        reponseElement.textContent ='The correct answer is :  ' + "\n" + quizQuestion.choices[quizQuestion.correctAnswer];
         showScore();
     }
 }
