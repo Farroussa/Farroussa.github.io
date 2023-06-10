@@ -381,7 +381,10 @@ a[download],a {
         font-size: 15px;
     }
     td{
-        padding: 50px;
+        padding: 0;
+    }
+    .table-container{
+        padding: 0;
     }
 }
 
