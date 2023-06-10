@@ -1,0 +1,154 @@
+
+const quizData = [
+    {
+        question: "Who is the first champ champ of UFC history ?",
+        choices: ["Connor Mcgregor", "Henri Cejudo","Jon Jones"],
+        correctAnswer: 0
+    },
+    {
+        question: "How long is one UFC round ?",
+        choices: ["3 min", "2 min", "5 min"],
+        correctAnswer: 2
+    },
+    {
+        question: "What is the size of an octagon from an edge to an other ?",
+        choices: ["3 meters", "8 meters", "6 meters"],
+        correctAnswer: 1
+    },
+    {
+        question: "How many rounds for the belt fights ?",
+        choices: ["3 rounds", "4 rounds", "5 rounds"],
+        correctAnswer: 2
+    },
+    {
+        question: "Can we throw knees when the fight happens on the ground ?",
+        choices: ["Yes","No"],
+        correctAnswer: 1
+    },
+    {
+        question: "Who is the president of the organization ?",
+        choices: ["Jeff Bezos","Dana White","Mike Tyson"],
+        correctAnswer: 1
+    }
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionElement = document.getElementById('question');
+const choicesElement = document.getElementById('choices');
+const reponseElement=document.getElementById('reponse');
+const scoreElement = document.getElementById('score');
+const next =document.getElementById('next');
+
+function loadQuestion() {
+    const quizQuestion = quizData[currentQuestion];
+    questionElement.textContent = quizQuestion.question;
+
+    choicesElement.innerHTML = '';
+    quizQuestion.choices.forEach(function(choice, index) {
+        const li = document.createElement('li');
+        li.textContent = choice;
+        li.addEventListener('mouseover', function() {
+            li.style.color = 'red';
+        });
+        li.addEventListener('mouseout', function() {
+            li.style.color = '';
+        });
+        li.style.padding='10px';
+        li.style.cursor='pointer';
+        li.style.fontWeight='bold';
+        li.addEventListener('click', function() {
+            submitAnswer(index);
+        });
+        choicesElement.appendChild(li);
+    });
+    showScore();
+}
+
+
+function submitAnswer(choiceIndex) {
+    const quizQuestion = quizData[currentQuestion];
+    if (choiceIndex === quizQuestion.correctAnswer) {
+        score++;
+        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer];
+    }
+
+    currentQuestion++;
+    if (currentQuestion < quizData.length){
+        reponseElement.style.display='';
+        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer];
+        next.addEventListener('click',function (){
+            loadQuestion();
+            reponseElement.style.display='none';
+        });
+        showScore();
+    }
+    else if (currentQuestion === quizData.length){
+        reponseElement.style.display='';
+        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer]
+        showScore();
+    }
+    else {
+        reponseElement.style.display='';
+        reponseElement.textContent ='The correct answer is : ' + quizQuestion.choices[quizQuestion.correctAnswer];
+        showScore();
+    }
+}
+
+function showScore() {
+    scoreElement.textContent = 'Your score : ' + score + ' / ' + quizData.length;
+    scoreElement.style.display = 'block';
+}
+
+const element1 = document.querySelector("#lien1");
+const element2 = document.querySelector("#lien2");
+const element3 = document.querySelector("#lien3");
+const element4 = document.querySelector("#lien4");
+const element5 = document.querySelector("#lien5");
+const element6 = document.querySelector("#lien6");
+const element7 = document.querySelector("#lien7");
+const mediaQuery = window.matchMedia("(max-width: 800px)");
+const liens=document.getElementsByClassName("liens");
+function accueil(){
+    function handleMediaQuery1(mediaQuery) {
+        if (mediaQuery.matches) {
+            if(element1.style.display !=='none'){
+                element1.style.display='none';
+                element2.style.display='none';
+                element3.style.display='none';
+                element4.style.display='none';
+                element5.style.display='none';
+                element6.style.display='none';
+                element7.style.display='none';
+            }
+            else{
+                element1.style.display='';
+                element2.style.display='';
+                element3.style.display='';
+                element4.style.display='';
+                element5.style.display='';
+                element6.style.display='';
+                element7.style.display='';
+            }
+        }
+        else{
+            element1.style.display='';
+            element2.style.display='';
+            element3.style.display='';
+            element4.style.display='';
+            element5.style.display='';
+            element6.style.display='';
+            element7.style.display='';
+        }
+    }
+    mediaQuery.addListener(handleMediaQuery1);
+    handleMediaQuery1(mediaQuery);
+
+}
+accueil();
+loadQuestion();
+
+
+
