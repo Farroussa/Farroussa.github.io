@@ -380,11 +380,12 @@ a[download],a {
     #fileInput{
         font-size: 15px;
     }
-    td{
-        padding: 0;
+    th:nth-child(5), td:nth-child(5) {
+        display: none;
     }
-    .table-container{
-        padding: 0;
+
+    img.photo{
+        width: 30px;
     }
 }
 
