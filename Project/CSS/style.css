@@ -316,7 +316,7 @@ a[download],a {
 
 }
 @media screen and (max-width: 500px) {
-    .container {
+    .container{
         width: 350px;
     }
 
@@ -345,7 +345,7 @@ a[download],a {
         font-size: 20px;
     }
     th {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     h3{
@@ -383,11 +383,10 @@ a[download],a {
     th:nth-child(5), td:nth-child(5) {
         display: none;
     }
-
     img.photo{
         width: 30px;
     }
-    
+
     .table-container{
         display: flex;
         justify-content: center;
