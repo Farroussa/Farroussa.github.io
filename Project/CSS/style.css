@@ -95,6 +95,7 @@ h4{
 .about{
     font-size: 20px;
     text-align: center;
+    list-style-type: none;
 }
 
 h2, h3, h4, article, p{
@@ -189,7 +190,7 @@ a[download],a {
     margin-top: 5px;
 }
 
-.box {
+.box{
     background-color: darkgrey;
     border: 1px solid black;
     border-radius: 4px;
@@ -198,7 +199,8 @@ a[download],a {
     text-align: center;
 }
 
-#question{
+
+#question, .endmsg, .play{
     font-size: 35px;
     text-align: center;
     font-weight: bold;
