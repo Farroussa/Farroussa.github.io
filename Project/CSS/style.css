@@ -387,5 +387,10 @@ a[download],a {
     img.photo{
         width: 30px;
     }
+    
+    .table-container{
+        display: flex;
+        justify-content: center;
+    }
 }
 
