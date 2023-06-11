@@ -41,6 +41,7 @@ const choicesElement = document.getElementById('choices');
 const reponseElement=document.getElementById('reponse');
 const scoreElement = document.getElementById('score');
 const next =document.getElementById('next');
+const tryagain =document.getElementById('tryagain');
 const playbutton =document.getElementById('playbutton');
 const play=document.getElementById('play');
 const endmsg=document.getElementById('endmsg');
@@ -59,10 +60,15 @@ function playquizz(){
     boxchoices.style.display='none';
     boxreponse.style.display='none';
     boxscore.style.display='none';
+    next.style.display='none';
+    tryagain.style.display='none';
     playbutton.addEventListener('click',function (){
         play.style.display='none';
         boxquestion.style.display='';
         boxchoices.style.display='';
+        playbutton.style.display='none';
+        next.style.display='';
+        tryagain.style.display='';
 
     });
 
