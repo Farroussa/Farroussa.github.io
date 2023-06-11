@@ -37,7 +37,6 @@ let currentQuestion = 0;
 let score = 0;
 
 const questionElement = document.getElementById('question');
-
 const choicesElement = document.getElementById('choices');
 const reponseElement=document.getElementById('reponse');
 const scoreElement = document.getElementById('score');
@@ -49,19 +48,27 @@ const boxquestion=document.getElementById('boxquestion');
 const boxchoices=document.getElementById('boxchoices');
 const boxreponse=document.getElementById('boxreponse');
 const boxscore=document.getElementById('boxscore');
-boxreponse.style.display = 'none';
-endmsg.style.display = 'none';
-boxquestion.style.display='none';
-boxchoices.style.display='none';
-boxreponse.style.display='none';
-boxscore.style.display='none';
 
-playbutton.addEventListener('click',function (){
-    play.style.display='none';
-    boxquestion.style.display='';
-    boxchoices.style.display='';
 
-});
+
+
+function playquizz(){
+    boxreponse.style.display = 'none';
+    endmsg.style.display = 'none';
+    boxquestion.style.display='none';
+    boxchoices.style.display='none';
+    boxreponse.style.display='none';
+    boxscore.style.display='none';
+    playbutton.addEventListener('click',function (){
+        play.style.display='none';
+        boxquestion.style.display='';
+        boxchoices.style.display='';
+
+    });
+
+}
+
+
 function loadQuestion() {
     const quizQuestion = quizData[currentQuestion];
     questionElement.textContent = quizQuestion.question;
@@ -141,7 +148,7 @@ const element5 = document.querySelector("#lien5");
 const element6 = document.querySelector("#lien6");
 const element7 = document.querySelector("#lien7");
 const mediaQuery = window.matchMedia("(max-width: 800px)");
-
+const menuheader=document.getElementById('menuheader');
 function accueil(){
     function handleMediaQuery1(mediaQuery) {
         if (mediaQuery.matches) {
@@ -153,6 +160,7 @@ function accueil(){
                 element5.style.display='none';
                 element6.style.display='none';
                 element7.style.display='none';
+                menuheader.style.display='';
             }
             else{
                 element1.style.display='';
@@ -162,6 +170,7 @@ function accueil(){
                 element5.style.display='';
                 element6.style.display='';
                 element7.style.display='';
+                menuheader.style.display='none';
             }
         }
         else{
@@ -172,6 +181,7 @@ function accueil(){
             element5.style.display='';
             element6.style.display='';
             element7.style.display='';
+            menuheader.style.display='none';
         }
     }
     mediaQuery.addListener(handleMediaQuery1);
@@ -179,7 +189,9 @@ function accueil(){
 
 }
 accueil();
+playquizz();
 loadQuestion();
+
 
 
 
