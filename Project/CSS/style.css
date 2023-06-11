@@ -68,12 +68,15 @@ footer {
     margin: 0 5px;
     display: inline-block;
 }
-.logoheader, .logofooter{
+.logoheader, .logofooter, .menuheader{
     width: 110px;
     display: inline-block;
 }
-.logoheader img, .logofooter img{
+.logoheader img, .logofooter img, .menuheader img{
     width: 100%;
+}
+.menuheader{
+    display: none;
 }
 .container ,.headcontainer{
     width: 1000px;
@@ -315,6 +318,15 @@ a[download],a {
         display: none;
     }
 
+    .menuheader{
+        display: initial;
+    }
+    .menuheader img{
+        width: 20%;
+    }
+    nav, .menuheader{
+        display: inline-block;
+    }
 
 }
 @media screen and (max-width: 500px) {
@@ -377,6 +389,16 @@ a[download],a {
 
     .logoheader {
         display: none;
+    }
+
+    .menuheader{
+        display: initial;
+    }
+    .menuheader img{
+        width: 20%;
+    }
+    nav, .menuheader{
+        display: inline-block;
     }
 
     #fileInput{
