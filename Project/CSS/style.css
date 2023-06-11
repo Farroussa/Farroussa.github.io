@@ -68,12 +68,15 @@ footer {
     margin: 0 5px;
     display: inline-block;
 }
-.logoheader, .logofooter{
+.logoheader, .logofooter, .menuheader{
     width: 110px;
     display: inline-block;
 }
-.logoheader img, .logofooter img{
+.logoheader img, .logofooter img, .menuheader img{
     width: 100%;
+}
+.menuheader{
+    display: none;
 }
 .container ,.headcontainer{
     width: 1000px;
@@ -95,6 +98,7 @@ h4{
 .about{
     font-size: 20px;
     text-align: center;
+    list-style-type: none;
 }
 
 h2, h3, h4, article, p{
@@ -189,7 +193,7 @@ a[download],a {
     margin-top: 5px;
 }
 
-.box {
+.box{
     background-color: darkgrey;
     border: 1px solid black;
     border-radius: 4px;
@@ -198,7 +202,8 @@ a[download],a {
     text-align: center;
 }
 
-#question{
+
+#question, .endmsg, .play{
     font-size: 35px;
     text-align: center;
     font-weight: bold;
@@ -313,10 +318,19 @@ a[download],a {
         display: none;
     }
 
+    .menuheader{
+        display: initial;
+    }
+    .menuheader img{
+        width: 20%;
+    }
+    nav, .menuheader{
+        display: inline-block;
+    }
 
 }
 @media screen and (max-width: 500px) {
-    .container {
+    .container{
         width: 350px;
     }
 
@@ -345,7 +359,7 @@ a[download],a {
         font-size: 20px;
     }
     th {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     h3{
@@ -377,11 +391,29 @@ a[download],a {
         display: none;
     }
 
+    .menuheader{
+        display: initial;
+    }
+    .menuheader img{
+        width: 20%;
+    }
+    nav, .menuheader{
+        display: inline-block;
+    }
+
     #fileInput{
         font-size: 15px;
     }
-    td{
-        padding: 50px;
+    th:nth-child(5), td:nth-child(5) {
+        display: none;
+    }
+    img.photo{
+        width: 30px;
+    }
+
+    .table-container{
+        display: flex;
+        justify-content: center;
     }
 }
 
